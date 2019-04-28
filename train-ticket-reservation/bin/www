@@ -1,0 +1,6 @@
+const app = require('../server/server');
+const port = 8000
+app.listen(port, function() {
+ console.log('running at localhost: ' + port);
+ console.log('Now listening for requests...');
+});

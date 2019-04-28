@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb://localhost/db_ttrs",
+  "jwtSecret": "ttrs_k"
+}
