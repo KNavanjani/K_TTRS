@@ -1,33 +1,32 @@
 import {
-  GET_ITEMS,
-  ADD_ITEM,
-  DELETE_ITEM,
+  GET_TRAINS,
+  ADD_TRAIN,
+  DELETE_TRAIN,
   ITEMS_LOADING
 } from "../actions/types";
 
 const initialState = {
-  tickets: [],
+  trains: [],
   loading: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_ITEMS:
+    case GET_TRAINS:
       return {
         ...state,
-        //ticket*s
-        ticket: action.payload,
+        trains: action.payload,
         loading: false
       };
-    case ADD_ITEM:
+    case ADD_TRAIN:
       return {
         ...state,
-        tickets: [action.payload, ...state.tickets]
+        trains: [action.payload, ...state.trains]
       };
-    case DELETE_ITEM:
+    case DELETE_TRAIN:
       return {
         ...state,
-        tickets: state.tickets.filter(ticket => ticket._id !== action.payload)
+        trains: state.trains.filter(train => train._id !== action.payload)
       };
 
     case ITEMS_LOADING:

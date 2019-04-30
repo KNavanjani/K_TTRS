@@ -1,21 +1,23 @@
-.remove-btn{
-    margin-right:0.5rem;
+body {
+  font-family: Raleway;
+  color: #ffff;
+  background: #f59416;
+  margin: 10px 30px;
 }
-.fade-enter{
-    opacity: 0.01;
-
+.remove-btn {
+  margin-right: 0.5rem;
 }
-.fade-enter-active{
-    opacity: 1;
-    transition:opacity 1000ms ease-in;
-
+.fade-enter {
+  opacity: 0.01;
 }
-.fade-exit{
-    opacity: 1;
-
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
 }
-.fade-exit-active{
-    opacity: 0.01;
-    transition:opacity 1000ms ease-in;
-
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in;
 }

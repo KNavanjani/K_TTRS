@@ -7,6 +7,7 @@ import {
   Form,
   FormGroup,
   Label,
+  Badge,
   Input
 } from "reactstrap";
 import PropTypes from "prop-types";
@@ -87,20 +88,25 @@ class ItemModal extends Component {
             style={{ marginBottom: "2rem" }}
             onClick={this.toggle}
           >
-            Add Item
+            Book Train Tickets
           </Button>
         ) : (
-          <h4 className="mb-3 ml-4">Please log in to Book a ticket</h4>
+          <h2>
+            {" "}
+            <Badge color="info">Please Login to Book a Train Ticket</Badge>
+          </h2>
         )}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>
+          <ModalHeader className="text-muted" toggle={this.toggle}>
             Book Sri Lankan Train Tickets
           </ModalHeader>
 
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="title">Title</Label>
+                <Label for="title" className="text-muted">
+                  Title
+                </Label>
                 <Input
                   type="text"
                   name="title"
@@ -108,7 +114,9 @@ class ItemModal extends Component {
                   placeholder="Enter Title"
                   onChange={this.onChange}
                 />
-                <Label for="name">Name</Label>
+                <Label for="name" className="text-muted">
+                  Name
+                </Label>
                 <Input
                   type="text"
                   name="name"
@@ -116,7 +124,9 @@ class ItemModal extends Component {
                   placeholder="Enter Name"
                   onChange={this.onChange}
                 />
-                <Label for="mobile">Mobile</Label>
+                <Label for="mobile" className="text-muted">
+                  Mobile
+                </Label>
                 <Input
                   type="text"
                   name="mobile"
@@ -124,7 +134,9 @@ class ItemModal extends Component {
                   placeholder="Enter Mobile"
                   onChange={this.onChange}
                 />
-                <Label for="destination">Destination</Label>
+                <Label for="destination" className="text-muted">
+                  Destination
+                </Label>
                 <Input
                   type="text"
                   name="destination"
@@ -132,7 +144,9 @@ class ItemModal extends Component {
                   placeholder="Enter Destination"
                   onChange={this.onChange}
                 />
-                <Label for="date">Date</Label>
+                <Label for="date" className="text-muted">
+                  Date
+                </Label>
                 <Input
                   type="text"
                   name="date"
@@ -140,7 +154,9 @@ class ItemModal extends Component {
                   placeholder="Enter Trip Date"
                   onChange={this.onChange}
                 />
-                <Label for="time">Time</Label>
+                <Label for="time" className="text-muted">
+                  Time
+                </Label>
                 <Input
                   type="text"
                   name="time"
@@ -148,7 +164,9 @@ class ItemModal extends Component {
                   placeholder="Enter Train Time"
                   onChange={this.onChange}
                 />
-                <Label for="trainNo">Train Number</Label>
+                <Label for="trainNo" className="text-muted">
+                  Train Number
+                </Label>
                 <Input
                   type="text"
                   name="trainNo"
@@ -156,7 +174,9 @@ class ItemModal extends Component {
                   placeholder="Enter Train Number"
                   onChange={this.onChange}
                 />
-                <Label for="NoOfSeats">No Of Seats</Label>
+                <Label for="NoOfSeats" className="text-muted">
+                  No Of Seats
+                </Label>
                 <Input
                   type="text"
                   name="NoOfSeats"
@@ -164,7 +184,9 @@ class ItemModal extends Component {
                   placeholder="Enter Required Number of Seats"
                   onChange={this.onChange}
                 />
-                <Label for="transactionID">Transaction ID</Label>
+                <Label for="transactionID" className="text-muted">
+                  Transaction ID
+                </Label>
                 <Input
                   type="text"
                   name="transactionID"
@@ -172,7 +194,9 @@ class ItemModal extends Component {
                   placeholder="Enter Transaction ID"
                   onChange={this.onChange}
                 />
-                <Label for="NIC">NIC</Label>
+                <Label for="NIC" className="text-muted">
+                  NIC
+                </Label>
                 <Input
                   type="text"
                   name="NIC"

@@ -78,19 +78,23 @@ class LoginModal extends Component {
   render() {
     return (
       <div>
-        <NavLink onClick={this.toggle} href="#">
+        <NavLink className="text-white" onClick={this.toggle} href="#">
           Login
         </NavLink>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Login</ModalHeader>
+          <ModalHeader className="text-muted" toggle={this.toggle}>
+            Login
+          </ModalHeader>
           <ModalBody>
             {this.state.msg ? (
               <Alert color="danger">{this.state.msg}</Alert>
             ) : null}
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="email">Email</Label>
+                <Label for="email" className="text-muted">
+                  Email
+                </Label>
                 <Input
                   type="email"
                   name="email"
@@ -100,7 +104,9 @@ class LoginModal extends Component {
                   onChange={this.onChange}
                 />
 
-                <Label for="password">Password</Label>
+                <Label for="password" className="text-muted">
+                  Password
+                </Label>
                 <Input
                   type="password"
                   name="password"

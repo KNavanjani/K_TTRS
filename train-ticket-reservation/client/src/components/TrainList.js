@@ -42,7 +42,7 @@ class TrainList extends Component {
                 NIC
               }) => (
                 <CSSTransition key={_id} timeout={500} classNames="fade">
-                  <ListGroupItem>
+                  <ListGroupItem className="text-muted">
                     {this.props.isAuthenticated ? (
                       <Button
                         className="remove-btn"
@@ -54,7 +54,7 @@ class TrainList extends Component {
                       </Button>
                     ) : null}
 
-                    {_id}
+                    {`Use this Booking Reference ID when required to Update Ticket Details:  ${_id}`}
                   </ListGroupItem>
                 </CSSTransition>
               )

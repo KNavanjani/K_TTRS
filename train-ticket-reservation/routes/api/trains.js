@@ -4,13 +4,12 @@ const router = express.Router();
 //Train Model
 const Train = require("../../models/trains");
 
-/*
 //Get list of trains from the database
 router.get("/", (req, res) => {
   Train.find().then(trains => res.json(trains));
 });
-*/
 
+/*
 //Get list of trains from the database according to user input
 router.get("/", function(req, res, next) {
   const data = req.query;
@@ -39,6 +38,7 @@ router.get("/", function(req, res, next) {
     })
     .catch(next);
 });
+*/
 
 //Add a new train to the database
 router.post("/", (req, res, next) => {

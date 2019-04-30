@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AppNavbar from "./components/AppNavbar";
 import TrainList from "./components/TrainList";
+import AvailableTrainList from "./components/AvailableTrainList";
 import ItemModal from "./components/ItemModal";
 import { Container } from "reactstrap";
 
@@ -23,6 +24,7 @@ class App extends Component {
           <Container>
             <ItemModal />
             <TrainList />
+            <AvailableTrainList />
           </Container>
         </div>
       </Provider>
