@@ -1,6 +1,5 @@
 import axios from "axios";
 import { returnErrors } from "./errorActions";
-
 import {
   USER_LOADED,
   USER_LOADING,
@@ -17,6 +16,7 @@ export const loadUser = () => (dispatch, getState) => {
   // User loading
   dispatch({ type: USER_LOADING });
 
+  //Get user
   axios
     .get("/api/auth/user", tokenConfig(getState))
     .then(res =>
@@ -45,6 +45,7 @@ export const register = ({ name, email, password }) => dispatch => {
   // Request body
   const body = JSON.stringify({ name, email, password });
 
+  //User registration
   axios
     .post("/api/users", body, config)
     .then(res =>
@@ -75,6 +76,7 @@ export const login = ({ email, password }) => dispatch => {
   // Request body
   const body = JSON.stringify({ email, password });
 
+  //Login authentication
   axios
     .post("/api/auth", body, config)
     .then(res =>

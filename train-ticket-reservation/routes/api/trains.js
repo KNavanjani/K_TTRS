@@ -9,37 +9,6 @@ router.get("/", (req, res) => {
   Train.find().then(trains => res.json(trains));
 });
 
-/*
-//Get list of trains from the database according to user input
-router.get("/", function(req, res, next) {
-  const data = req.query;
-
-  const departureLocation = data.departureLocation;
-  const arrivalLocation = data.arrivalLocation;
-  const type = data.type;
-  const tclass = data.tclass;
-  const facilities = data.facilities;
-
-  Train.find({
-    $and: [
-      { departureLocation: { $eq: departureLocation } },
-
-      { arrivalLocation: { $eq: arrivalLocation } },
-
-      { type: { $eq: type } },
-
-      { tclass: { $eq: tclass } },
-
-      { facilities: { $eq: facilities } }
-    ]
-  })
-    .then(function(train) {
-      res.send(train);
-    })
-    .catch(next);
-});
-*/
-
 //Add a new train to the database
 router.post("/", (req, res, next) => {
   const newTrain = new Train({

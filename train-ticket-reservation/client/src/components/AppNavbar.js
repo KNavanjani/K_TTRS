@@ -13,7 +13,9 @@ import PropTypes from "prop-types";
 import RegisterModal from "./auth/RegisterModal";
 import LoginModal from "./auth/LoginModal";
 import Logout from "./auth/Logout";
+import logo from "../images/logo.png";
 
+//App Navbar  Modal
 class AppNavbar extends Component {
   state = {
     isOpen: false
@@ -59,9 +61,15 @@ class AppNavbar extends Component {
       <div>
         <Navbar color="dark" dark expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/">
-              Train Ticket Reservation in Sri Lanka
-            </NavbarBrand>
+            <div className="logo">
+              <img src={logo} width="130" height="130" alt="logo" />{" "}
+              <NavbarBrand href="/">
+                <h2>
+                  Reserve Sri Lankan Train Tickets with{" "}
+                  <strong>TravelLight.</strong>{" "}
+                </h2>
+              </NavbarBrand>
+            </div>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>

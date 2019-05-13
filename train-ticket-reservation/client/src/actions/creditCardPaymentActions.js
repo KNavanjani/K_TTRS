@@ -1,7 +1,7 @@
 import axios from "axios";
-
 import { ADD_CREDITCARDPAYMENT, GET_CREDITCARDPAYMENT } from "./types";
 
+//Add credit card payment
 export const addCreditCardPayment = creditCardPayment => dispatch => {
   axios.post("/api/creditCardPayment", creditCardPayment).then(res =>
     dispatch({
@@ -11,6 +11,7 @@ export const addCreditCardPayment = creditCardPayment => dispatch => {
   );
 };
 
+//Get credit card payment
 export const getCreditCardPayment = () => dispatch => {
   axios
     .get("/api/creditCardPayment")

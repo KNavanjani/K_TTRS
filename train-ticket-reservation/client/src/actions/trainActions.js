@@ -3,6 +3,7 @@ import { tokenConfig } from "./authActions";
 import { GET_TRAINS, ADD_TRAIN, DELETE_TRAIN, ITEMS_LOADING } from "./types";
 import { returnErrors } from "./errorActions";
 
+//Get train details
 export const getTrains = () => dispatch => {
   dispatch(setItemsLoading());
   axios
@@ -18,6 +19,7 @@ export const getTrains = () => dispatch => {
     );
 };
 
+//Add train details
 export const addTrain = train => (dispatch, getState) => {
   axios
     .post("/api/trains", train, tokenConfig(getState))
@@ -32,6 +34,7 @@ export const addTrain = train => (dispatch, getState) => {
     );
 };
 
+//Delete train details
 export const deleteTrain = id => (dispatch, getState) => {
   axios
     .delete(`/api/trains/${id}`, tokenConfig(getState))
@@ -46,6 +49,7 @@ export const deleteTrain = id => (dispatch, getState) => {
     );
 };
 
+//Load train details
 export const setItemsLoading = () => {
   return {
     type: ITEMS_LOADING

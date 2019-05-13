@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
 
   newCPayment.save().then(creditCardPayment => res.json(creditCardPayment));
 
-  /*
+  //Send Confirmation email
   var CPRef = Math.floor(Math.random() * 1000000 + 1);
 
   var output = `
@@ -34,10 +34,11 @@ router.post("/", (req, res) => {
 <h4>Your Transaction ID : TTR${CPRef}</h4>
   
 </p>
-<h3>In orderto continue the reservation procedure, please create a free account at Train Ticket Reservation and Book Train Tickets by filling and submiting the available form.</h3>
+<h3>In orderto continue the reservation procedure, please create a free account at TravelLight and Book Train Tickets by filling and submiting the available form.</h3>
 <br/>
 <p>Thanks,</p>
-<p>Train Ticket Reservation<p>
+<p>TravelLight</p>
+
 `;
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -52,9 +53,9 @@ router.post("/", (req, res) => {
     }
   });
   let mailOptions = {
-    from: '"Train Ticket Reservation" <alpha.4spirits@gmail.com>',
+    from: '"TravelLight" <alpha.4spirits@gmail.com>',
     to: req.body.email,
-    subject: "[Train Ticket Reservation] Payment Confirmation",
+    subject: "[TravelLight] Payment Confirmation",
     text: "Hello",
     html: output
   };
@@ -66,9 +67,6 @@ router.post("/", (req, res) => {
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   });
-
-
-  */
 });
 
 module.exports = router;

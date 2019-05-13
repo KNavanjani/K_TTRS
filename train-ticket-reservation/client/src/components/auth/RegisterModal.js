@@ -16,6 +16,7 @@ import PropTypes from "prop-types";
 import { register } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
 
+//Register Modal
 class RegisterModal extends Component {
   state = {
     modal: false,

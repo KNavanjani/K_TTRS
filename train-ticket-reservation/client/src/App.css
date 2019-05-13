@@ -1,9 +1,18 @@
 body {
   font-family: Raleway;
   color: #ffff;
-  background: #f59416;
+
+  background-image: linear-gradient(
+    to bottom,
+    #f60d40,
+    #fc3d34,
+    #ff5b28,
+    #ff741b,
+    #ff8b0c
+  );
   margin: 10px 30px;
 }
+
 .remove-btn {
   margin-right: 0.5rem;
 }

@@ -16,6 +16,7 @@ import PropTypes from "prop-types";
 import { login } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
 
+//Login Modal
 class LoginModal extends Component {
   state = {
     modal: false,

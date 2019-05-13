@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getItems, deleteItem } from "../actions/itemActions";
 import PropTypes from "prop-types";
 
+//Ticket Details
 class TrainList extends Component {
   static propTypes = {
     getItems: PropTypes.func.isRequired,
@@ -54,7 +55,7 @@ class TrainList extends Component {
                       </Button>
                     ) : null}
 
-                    {`Use this Booking Reference ID when required to Update Ticket Details:  ${_id}`}
+                    {`Thank you ! here is Booking Reference ID :  ${_id}`}
                   </ListGroupItem>
                 </CSSTransition>
               )

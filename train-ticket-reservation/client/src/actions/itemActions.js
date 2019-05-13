@@ -3,6 +3,7 @@ import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from "./types";
 import { tokenConfig } from "./authActions";
 import { returnErrors } from "./errorActions";
 
+//Get ticket details
 export const getItems = () => dispatch => {
   dispatch(setItemsLoading());
   axios
@@ -18,6 +19,7 @@ export const getItems = () => dispatch => {
     );
 };
 
+//Add ticket details
 export const addItem = ticket => (dispatch, getState) => {
   axios
     .post("/api/tickets", ticket, tokenConfig(getState))
@@ -32,6 +34,7 @@ export const addItem = ticket => (dispatch, getState) => {
     );
 };
 
+//Delete ticket details
 export const deleteItem = id => (dispatch, getState) => {
   axios
     .delete(`/api/tickets/${id}`, tokenConfig(getState))
@@ -46,6 +49,7 @@ export const deleteItem = id => (dispatch, getState) => {
     );
 };
 
+//Load ticket details
 export const setItemsLoading = () => {
   return {
     type: ITEMS_LOADING

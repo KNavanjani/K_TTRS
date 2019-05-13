@@ -14,6 +14,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addItem } from "../actions/itemActions";
 
+//Ticket Modal
 class ItemModal extends Component {
   state = {
     modal: false,
@@ -42,22 +43,11 @@ class ItemModal extends Component {
 
   onChange = e => {
     this.setState({
-      //[e.target.title]: e.target.value,
       [e.target.name]: e.target.value
-      /*
-      [e.target.mobile]: e.target.value,
-      [e.target.email]: e.target.value,
-      [e.target.destination]: e.target.value,
-      [e.target.date]: e.target.value,
-      [e.target.time]: e.target.value,
-      [e.target.trainNo]: e.target.value,
-      [e.target.NoOfSeats]: e.target.value,
-      [e.target.TransactionID]: e.target.value,
-      [e.target.NIC]: e.target.value
-      */
     });
   };
 
+  //Add ticket
   onSubmit = e => {
     e.preventDefault();
     const newItem = {
@@ -82,9 +72,12 @@ class ItemModal extends Component {
   render() {
     return (
       <div>
+        <br />
+        <br />
         {this.props.isAuthenticated ? (
           <Button
-            color="dark"
+            color="success"
+            size="lg"
             style={{ marginBottom: "2rem" }}
             onClick={this.toggle}
           >
@@ -93,7 +86,11 @@ class ItemModal extends Component {
         ) : (
           <h2>
             {" "}
-            <Badge color="info">Please Login to Book a Train Ticket</Badge>
+            <br />
+            <Badge color="success" size="lg">
+              Please Login to Book Train Tickets
+            </Badge>{" "}
+            <br />
           </h2>
         )}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -110,7 +107,8 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="title"
-                  id="ticket"
+                  id="title"
+                  required
                   placeholder="Enter Title"
                   onChange={this.onChange}
                 />
@@ -120,7 +118,8 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="name"
-                  id="ticket"
+                  id="name"
+                  required
                   placeholder="Enter Name"
                   onChange={this.onChange}
                 />
@@ -130,7 +129,10 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="mobile"
-                  id="ticket"
+                  id="mobile"
+                  required
+                  maxlength="10"
+                  pattern="\d{10}"
                   placeholder="Enter Mobile"
                   onChange={this.onChange}
                 />
@@ -140,7 +142,8 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="destination"
-                  id="ticket"
+                  id="destination"
+                  required
                   placeholder="Enter Destination"
                   onChange={this.onChange}
                 />
@@ -150,7 +153,8 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="date"
-                  id="ticket"
+                  id="date"
+                  required
                   placeholder="Enter Trip Date"
                   onChange={this.onChange}
                 />
@@ -160,7 +164,8 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="time"
-                  id="ticket"
+                  id="time"
+                  required
                   placeholder="Enter Train Time"
                   onChange={this.onChange}
                 />
@@ -170,7 +175,8 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="trainNo"
-                  id="ticket"
+                  id="trainNo"
+                  required
                   placeholder="Enter Train Number"
                   onChange={this.onChange}
                 />
@@ -178,9 +184,10 @@ class ItemModal extends Component {
                   No Of Seats
                 </Label>
                 <Input
-                  type="text"
+                  type="number"
                   name="NoOfSeats"
-                  id="ticket"
+                  id="NoOfSeats"
+                  required
                   placeholder="Enter Required Number of Seats"
                   onChange={this.onChange}
                 />
@@ -190,7 +197,8 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="transactionID"
-                  id="ticket"
+                  id="transactionID"
+                  required
                   placeholder="Enter Transaction ID"
                   onChange={this.onChange}
                 />
@@ -200,7 +208,8 @@ class ItemModal extends Component {
                 <Input
                   type="text"
                   name="NIC"
-                  id="ticket"
+                  id="NIC"
+                  required
                   placeholder="Enter NIC"
                   onChange={this.onChange}
                 />
