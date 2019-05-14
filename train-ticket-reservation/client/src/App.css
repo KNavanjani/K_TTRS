@@ -30,3 +30,6 @@ body {
   opacity: 0.01;
   transition: opacity 1000ms ease-in;
 }
+.pointer {
+  cursor: pointer;
+}

@@ -13,6 +13,8 @@ import {
 import { connect } from "react-redux";
 import { addMobileBillPayment } from "../actions/mobileBillPaymentActions";
 
+window.price = 0;
+
 //Mobile bill payment Modal
 class MobileBillPaymentModal extends Component {
   constructor(props) {
@@ -24,10 +26,14 @@ class MobileBillPaymentModal extends Component {
       amount: 0,
       mobileNo: 785469852,
       pinNo: 1234,
+      price: 0,
+      isGov: false,
+      checked: "Not Applicable",
       msg: null
     };
 
     this.toggle = this.toggle.bind(this);
+    this.validateGovEmp = this.validateGovEmp.bind(this);
   }
 
   toggle() {
@@ -41,6 +47,33 @@ class MobileBillPaymentModal extends Component {
       [e.target.name]: e.target.value
     });
   };
+
+  //Validate Government Employee Status and provide discounts
+  validateGovEmp() {
+    this.setState(
+      prevState => ({
+        isGov: !prevState.isGov
+      }),
+      () => {
+        if (this.state.isGov === true) {
+          this.setState(
+            { checked: "Applicable, Click validate to obtain discount" },
+            function() {
+              var precentage = 10.0;
+              window.price = (window.stotal * precentage) / 100;
+              // console.log("Discount Applicable");
+              // console.log(window.price);
+            }
+          );
+        }
+        //else {
+        //window.price = window.stotal;
+        //console.log("Discount Not Applicable");
+        //console.log(window.price);
+        //}
+      }
+    );
+  }
 
   //Add mobile bill payment
   onSubmitAddMobileBillPayment = e => {
@@ -92,8 +125,17 @@ class MobileBillPaymentModal extends Component {
                   className="mb-3"
                   onChange={this.onChange}
                 />
-
-                <Button color="success">Validate</Button>
+                <Button color="success" onClick={this.validateGovEmp}>
+                  Validate
+                </Button>{" "}
+                <Label
+                  for="name"
+                  className="text-success"
+                  onChange={this.getDiscounts}
+                >
+                  {" "}
+                  {this.state.checked}
+                </Label>
                 <br />
                 <Label for="name" className="text-muted">
                   Name
@@ -106,7 +148,6 @@ class MobileBillPaymentModal extends Component {
                   className="mb-3"
                   onChange={this.onChange}
                 />
-
                 <Label for="email" className="text-muted">
                   Email
                 </Label>
@@ -118,7 +159,6 @@ class MobileBillPaymentModal extends Component {
                   className="mb-3"
                   onChange={this.onChange}
                 />
-
                 <Label for="mobileNo" className="text-muted">
                   Mobile Number
                 </Label>
@@ -152,11 +192,10 @@ class MobileBillPaymentModal extends Component {
                   type="number"
                   name="amount"
                   id="amount"
-                  placeholder="Enter the Sub Total"
+                  value={window.price}
                   className="mb-3"
-                  onChange={this.onChange}
+                  readonly
                 />
-
                 <Button color="dark" style={{ marginTop: "2rem" }} block>
                   Make the Payment
                 </Button>

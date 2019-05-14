@@ -19,6 +19,8 @@ import BookASeatModal from "./BookASeatModal";
 import ShoppingCart from "../images/ShoppingCart.png";
 import PropTypes from "prop-types";
 
+window.stotal = 0;
+
 //Available TrainList Modal
 class AvailableTrainList extends Component {
   constructor(props) {
@@ -27,6 +29,8 @@ class AvailableTrainList extends Component {
       modal: false,
       noOfTickets: 0,
       amount: 0,
+      total: 0,
+      stotal: 0,
       msg: null
     };
 
@@ -53,6 +57,8 @@ class AvailableTrainList extends Component {
 
   render() {
     const { trains } = this.props.train;
+    //var total = this.props.total;
+    //Total : {this.state.total}
     return (
       <Container>
         <ListGroup>
@@ -92,7 +98,7 @@ class AvailableTrainList extends Component {
                 <CSSTransition key={_id} timeout={500} classNames="fade">
                   <Table id="schedule" responsive>
                     <tbody>
-                      <tr>
+                      <tr id="K">
                         <td>{trainNo}</td>
                         <td>{type}</td>
                         <td>{tclass}</td>
@@ -102,7 +108,7 @@ class AvailableTrainList extends Component {
                         <td>{arrivalLocation}</td>
                         <td>{arrivalTime}</td>
                         <td>{facilities}</td>
-                        <td id="K">
+                        <td>
                           <Input
                             type="number"
                             name="noOfTickets"
@@ -116,11 +122,51 @@ class AvailableTrainList extends Component {
                             <Button
                               id="AddToCart"
                               color="secondary"
-                              onClick={this.toggle}
                               href="#"
+                              onClick={this.toggle}
                             >
-                              Add to Cart
+                              Make Payment
                             </Button>
+
+                            <img
+                              src={ShoppingCart}
+                              width="50"
+                              height="50"
+                              alt="cart"
+                            />
+                            <label
+                              title="Double Click on this Sub Total to Add To Cart"
+                              id="subTotal"
+                              className="pointer"
+                              onDoubleClick={
+                                (window.ondblclick = e => {
+                                  //console.log(e.target.innerText);
+                                  var selected = e.target.innerText;
+
+                                  //this.total.setState(selected);
+
+                                  /*
+                                  this.setState({
+                                    event: {
+                                      [total]: selected
+                                    }
+                                  }),
+                                    () => {
+                                      console.log(this.state.total);
+                                    };
+                                  console.log(selected);*/
+
+                                  this.setState({ total: selected }, () => {
+                                    console.log(this.state.total);
+                                  });
+                                  window.stotal = this.state.total;
+                                })
+                              }
+                            >
+                              {" "}
+                              <strong>{fare * this.state.noOfTickets}</strong>
+                            </label>
+
                             <Modal
                               isOpen={this.state.modal}
                               toggle={this.toggle}
@@ -134,24 +180,18 @@ class AvailableTrainList extends Component {
                               </ModalHeader>
                               <ModalBody>
                                 <Card body inverse color="primary">
-                                  <CardTitle>
-                                    Choose Your Payement Method{" "}
-                                  </CardTitle>
-                                  <CardText />
+                                  <CardTitle />
+                                  <CardText>
+                                    <label id="checkoutTotal">
+                                      Sub Total : {this.state.total} LKR
+                                    </label>
+                                    <br />
+                                    Choose Your Payement Method <br />
+                                  </CardText>
                                   <BookASeatModal />
                                 </Card>
                               </ModalBody>
                             </Modal>
-                            <img
-                              src={ShoppingCart}
-                              width="50"
-                              height="50"
-                              alt="cart"
-                            />
-                            <label id="subTotal">
-                              {" "}
-                              <strong>{fare * this.state.noOfTickets}</strong>
-                            </label>
                           </div>
                         </td>
                       </tr>
