@@ -21,6 +21,7 @@ app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/mobileBillPayment", require("./routes/api/mobileBillPayments"));
 app.use("/api/creditCardPayment", require("./routes/api/creditCardPayments"));
+app.use("/api/govEmps", require("./routes/api/govEmps"));
 
 const port = process.env.PORT || 8280;
 

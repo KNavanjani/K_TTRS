@@ -65,18 +65,16 @@ class AvailableTrainList extends Component {
           <Table responsive>
             <thead>
               <tr>
-                <h5>
-                  <th>Train Number</th>
-                  <th>Train Type</th>
-                  <th>Class</th>
-                  <th>Fare</th>
-                  <th>Departure Location</th>
-                  <th>Departure Time</th>
-                  <th>Arrival Location</th>
-                  <th>Arrival Time</th>
-                  <th>Facilities</th>
-                  <th>Make Payment to Book Seats</th>
-                </h5>
+                <th>Train Number</th>
+                <th>Train Type</th>
+                <th>Class</th>
+                <th>Fare</th>
+                <th>Departure Location</th>
+                <th>Departure Time</th>
+                <th>Arrival Location</th>
+                <th>Arrival Time</th>
+                <th>Facilities</th>
+                <th>Make Payment to Book Seats</th>
               </tr>
             </thead>
           </Table>

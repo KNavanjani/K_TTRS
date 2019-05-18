@@ -10,7 +10,8 @@ class TrainList extends Component {
   static propTypes = {
     getItems: PropTypes.func.isRequired,
     ticket: PropTypes.object.isRequired,
-    isAuthenticated: PropTypes.bool
+    //isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.object.isRequired
   };
 
   componentDidMount() {

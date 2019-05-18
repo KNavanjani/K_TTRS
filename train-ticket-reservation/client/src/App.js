@@ -23,6 +23,7 @@ class App extends Component {
           <AppNavbar />
           <HomePageContents />
           <ItemModal />
+
           <TrainList />
           <AvailableTrainList />
           <Container />

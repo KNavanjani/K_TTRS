@@ -7,23 +7,27 @@ const HomePageContents = props => {
   return (
     <div>
       <Card body inverse color="info" className="text-center">
-        <h2>
-          <strong>
-            <CardTitle className="text-white">Reserve Train Tickets</CardTitle>
-          </strong>
-        </h2>
-        <CardText className="text-white">
-          <h4>
-            Reserve train tickets with convenience and ease any time any were
-            with <strong>TravelLight.</strong>
-          </h4>
+        <strong>
+          <CardTitle tag="h2" className="text-white">
+            Reserve Train Tickets
+          </CardTitle>
+        </strong>
+
+        <CardText tag="h4" className="text-white">
+          Reserve train tickets with convenience and ease any time any were with{" "}
+          <strong>TravelLight.</strong>
           <CardImg top width="100%" src={coverimg} alt="Card image cap" />
           <br /> <br />
           <div>
-            <h3>Guidelines</h3>
+            <u>
+              <strong>Guidelines</strong>
+            </u>
+
+            <br />
             <li>
-              Click on "Add to Cart" button next to the train you wish to book
-              and change the ticket quantity as required.
+              Change the ticket quantity as required -> Double Click on
+              displayed price for Add to Cart -> Click on "Make Payment" button
+              next to the train you wish to book
             </li>
             <li>
               Complete the payment process either by credit card or mobile bill
@@ -33,11 +37,13 @@ const HomePageContents = props => {
               Create an FREE account in TravelLight and login with created
               credentials.
             </li>
-
             <li>Complete the booking form and submit.</li>
           </div>
           <br /> <br />
-          <h3>Terms and Conditions</h3>
+          <u>
+            <strong>Terms and Conditions</strong>
+          </u>
+          <br />
           <li>No cancellation and no refund policy apply. </li>
           <li> Maximum of 5 Tickets would be reserved per one NIC. </li>
           <li>
