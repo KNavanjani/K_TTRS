@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
 <h4>Your Transaction ID : TTR${CPRef}</h4>
   
 </p>
-<h3>In orderto continue the reservation procedure, please create a free account at TravelLight and Book Train Tickets by filling and submiting the available form.</h3>
+<h3>In order to continue the reservation procedure, please create a free account at TravelLight and Book Train Tickets by filling and submiting the available form.</h3>
 <br/>
 <p>Thanks,</p>
 <p>TravelLight</p>

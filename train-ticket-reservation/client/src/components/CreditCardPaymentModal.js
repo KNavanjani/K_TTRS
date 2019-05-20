@@ -17,9 +17,9 @@ import { getGovEmps } from "../actions/govEmpActions";
 import PropTypes from "prop-types";
 
 window.govEmpList = [];
-window.price = 0;
+window.price = window.stotal;
 window.checkNIC = "";
-var status = "NOT Applicable";
+//var status = "NOT Applicable";
 var checkedStatus = true;
 
 //Credit card payment Modal
@@ -53,6 +53,7 @@ class CreditCardPaymentModal extends Component {
 
   componentDidMount() {
     this.props.getGovEmps();
+    window.price = window.stotal;
   }
 
   toggle() {
@@ -66,63 +67,6 @@ class CreditCardPaymentModal extends Component {
       [e.target.name]: e.target.value
     });
   };
-
-  /*
-  //Validate Government Employee Status and provide discounts
-  validateGovEmp() {
-    this.setState(
-      prevState => ({
-        isGov: !prevState.isGov
-      }),
-      () => {
-        if (this.state.isGov === true) {
-          this.setState(
-            { checked: "Applicable, Click validate to obtain discount" },
-            function() {
-              var precentage = 10.0;
-              window.price = (window.stotal * precentage) / 100;
-              // console.log("Discount Applicable");
-              // console.log(window.price);
-            }
-          );
-        }
-        //else {
-        // window.price = window.stotal;
-        //console.log("Discount Not Applicable");
-        //console.log(window.price);
-        //}
-      }
-    );
-  }
-
-
-*/
-
-  /*
-  this.setState({
-    buttonOne:'ONE'
-  }, () => console.log(this.state.buttonOne, 'this.state.buttonOne'))
-
-*/
-
-  //var precentage = 10.0;
-  // if (this.state.checked === "Applicable") {
-  // window.stotal = (window.stotal * precentage) / 100;
-  //  console.log("KK4K");
-  // } else window.stotal = window.stotal;
-  // console.log("KK2K");
-  // console.log(window.stotal);
-
-  /*
-  //Provide Discounts
-  getDiscounts() {
-    var precentage = 10.0;
-    if (this.state.checked === "Applicable") {
-      window.stotal = (window.stotal * precentage) / 100;
-      console.log("KKK");
-    } else window.stotal = window.stotal;
-  }
-*/
 
   validateGovEmpStatus = e => {
     var EntertedNICNumber = document.getElementById("nicNo").value;
@@ -140,6 +84,7 @@ class CreditCardPaymentModal extends Component {
       var precentage = 3.0;
       window.price = window.stotal - (window.stotal * precentage) / 100;
       console.log(window.price);
+      console.log(window.stotal);
       document.getElementById("totalCost").value = window.price;
     }
   }
@@ -152,7 +97,7 @@ class CreditCardPaymentModal extends Component {
       email: this.state.email,
       cardNo: this.state.cardNo,
       cvcNo: this.state.cvcNo,
-      amount: this.state.amount
+      amount: window.price
     };
 
     this.props.addCreditCardPayment(newCreditCardPayment);
@@ -168,7 +113,7 @@ class CreditCardPaymentModal extends Component {
       <Container>
         <div>
           <Button color="secondary" onClick={this.toggle} href="#">
-            Book via Credit Card
+            Pay via Credit Card
           </Button>
 
           <Modal
@@ -218,7 +163,7 @@ class CreditCardPaymentModal extends Component {
                     id="checkApplicability"
                     onClick={this.validateGovEmpStatus}
                   >
-                    KK
+                    Verify Government Employee Status
                   </Button>
                   <br />
                   <Label for="name" className="text-muted">
@@ -278,7 +223,7 @@ class CreditCardPaymentModal extends Component {
                     name="amount"
                     id="totalCost"
                     className="mb-3"
-                    value={window.stotal}
+                    value={window.price}
                     readOnly
                   />
                   <Button

@@ -17,9 +17,9 @@ import { getGovEmps } from "../actions/govEmpActions";
 import PropTypes from "prop-types";
 
 window.govEmpList = [];
-window.price = 0;
+window.price = window.stotal;
 window.checkNIC = "";
-var status = "NOT Applicable";
+//var status = "NOT Applicable";
 var checkedStatus = true;
 
 //Mobile bill payment Modal
@@ -33,7 +33,7 @@ class MobileBillPaymentModal extends Component {
       amount: 0,
       mobileNo: 785469852,
       pinNo: 1234,
-      price: 0,
+      price: window.stotal,
       isGov: false,
       checked: "Not Applicable",
       msg: null,
@@ -50,6 +50,7 @@ class MobileBillPaymentModal extends Component {
   };
   componentDidMount() {
     this.props.getGovEmps();
+    window.price = window.stotal;
   }
 
   toggle() {
@@ -92,7 +93,7 @@ class MobileBillPaymentModal extends Component {
       email: this.state.email,
       mobileNo: this.state.mobileNo,
       pinNo: this.state.pinNo,
-      amount: this.state.amount
+      amount: window.price
     };
 
     this.props.addMobileBillPayment(newMobilePayment);
@@ -108,7 +109,7 @@ class MobileBillPaymentModal extends Component {
       <Container>
         <div>
           <Button color="secondary" onClick={this.toggle} href="#">
-            Book via Mobile Bill
+            Pay via Mobile Bill
           </Button>
 
           <Modal
@@ -158,7 +159,7 @@ class MobileBillPaymentModal extends Component {
                     id="checkApplicability"
                     onClick={this.validateGovEmpStatus}
                   >
-                    KK
+                    Verify Government Employee Status
                   </Button>
                   <br />
                   <Label for="name" className="text-muted">
@@ -216,9 +217,9 @@ class MobileBillPaymentModal extends Component {
                     type="number"
                     name="amount"
                     id="totalCost"
-                    value={window.stotal}
+                    value={window.price}
                     className="mb-3"
-                    readonly
+                    readOnly
                   />
                   <Button color="dark" style={{ marginTop: "2rem" }} block>
                     Make the Payment

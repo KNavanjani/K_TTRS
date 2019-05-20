@@ -52,7 +52,7 @@ class TrainList extends Component {
                         size="sm"
                         onClick={this.onDeleteClick.bind(this, _id)}
                       >
-                        &times;
+                        Cancel this Reservation
                       </Button>
                     ) : null}
 

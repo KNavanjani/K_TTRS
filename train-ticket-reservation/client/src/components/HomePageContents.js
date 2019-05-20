@@ -44,7 +44,7 @@ const HomePageContents = props => {
             <strong>Terms and Conditions</strong>
           </u>
           <br />
-          <li>No cancellation and no refund policy apply. </li>
+          <li>No refund policy apply. </li>
           <li> Maximum of 5 Tickets would be reserved per one NIC. </li>
           <li>
             Standard customer verification and other terms and conditions would

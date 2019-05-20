@@ -57,8 +57,7 @@ class AvailableTrainList extends Component {
 
   render() {
     const { trains } = this.props.train;
-    //var total = this.props.total;
-    //Total : {this.state.total}
+
     return (
       <Container>
         <ListGroup>
@@ -117,6 +116,31 @@ class AvailableTrainList extends Component {
                             onChange={this.onChange}
                           />
                           <div className="ShoppingCart">
+                            <img
+                              src={ShoppingCart}
+                              width="50"
+                              height="50"
+                              alt="cart"
+                            />
+                            <Button
+                              color="primary"
+                              title="Double Click on this Sub Total to Add To Cart"
+                              id="subTotal"
+                              className="pointer"
+                              onDoubleClick={
+                                (window.ondblclick = e => {
+                                  var selected = e.target.innerText;
+                                  this.setState({ total: selected }, () => {
+                                    console.log(this.state.total);
+                                  });
+
+                                  window.stotal = this.state.total;
+                                })
+                              }
+                            >
+                              {" "}
+                              <strong>{fare * this.state.noOfTickets}</strong>
+                            </Button>{" "}
                             <Button
                               id="AddToCart"
                               color="secondary"
@@ -125,46 +149,6 @@ class AvailableTrainList extends Component {
                             >
                               Make Payment
                             </Button>
-
-                            <img
-                              src={ShoppingCart}
-                              width="50"
-                              height="50"
-                              alt="cart"
-                            />
-                            <label
-                              title="Double Click on this Sub Total to Add To Cart"
-                              id="subTotal"
-                              className="pointer"
-                              onDoubleClick={
-                                (window.ondblclick = e => {
-                                  //console.log(e.target.innerText);
-                                  var selected = e.target.innerText;
-
-                                  //this.total.setState(selected);
-
-                                  /*
-                                  this.setState({
-                                    event: {
-                                      [total]: selected
-                                    }
-                                  }),
-                                    () => {
-                                      console.log(this.state.total);
-                                    };
-                                  console.log(selected);*/
-
-                                  this.setState({ total: selected }, () => {
-                                    console.log(this.state.total);
-                                  });
-                                  window.stotal = this.state.total;
-                                })
-                              }
-                            >
-                              {" "}
-                              <strong>{fare * this.state.noOfTickets}</strong>
-                            </label>
-
                             <Modal
                               isOpen={this.state.modal}
                               toggle={this.toggle}
